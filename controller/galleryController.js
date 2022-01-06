@@ -276,7 +276,7 @@ const gatherings2015_gallery = async (req, res) => {
                 return item.toString().includes("2015_Gatherings_") == true;
             });
             if(GATHERINGS_2015.length !=0){
-                gatherings2020.push(GATHERINGS_2015);
+                gatherings2015.push(GATHERINGS_2015);
             }
         }
         // const stringData = JSON.stringify(csr2020);
@@ -374,7 +374,7 @@ const gatherings2017_gallery = async (req, res) => {
                 return item.toString().includes("2017_Gatherings_") == true;
             });
             if(GATHERINGS_2017.length !=0){
-                gatherings2020.push(GATHERINGS_2017);
+                gatherings2017.push(GATHERINGS_2017);
             }
         }
         // const stringData = JSON.stringify(csr2020);
