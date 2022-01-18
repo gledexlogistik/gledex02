@@ -25,7 +25,7 @@ router.post('/gatherings2016_gal', gatherings2016_gallery);
 router.post('/gatherings2017_gal', gatherings2017_gallery);
 router.post('/gatherings2020_gal', gatherings2020_gallery);
 router.post('/gatherings2021_gal', gatherings2021_gallery);
-router.post('/projects2017_gal', projects2020_gallery);
+router.post('/projects2017_gal', projects2017_gallery);
 router.post('/projects2020_gal', projects2020_gallery);
 router.post('/projects2021_gal', projects2021_gallery);
 
