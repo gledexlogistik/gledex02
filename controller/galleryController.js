@@ -498,6 +498,55 @@ const gatherings2021_gallery = async (req, res) => {
     }
 }
 
+const projects2017_gallery = async (req, res) => {
+    console.log('jahahaha')
+    const bucketName = 'gledex-d4404.appspot.com';
+    const [files] = await storage.bucket(bucketName).getFiles();
+    
+    try {
+        const config = {
+            action: 'read',
+            expires: '03-17-2491'
+         };
+         const promises = [];
+         for (let i = 1; i < files.length; i++) {
+           console.log(files[i].name);
+           promises.push(await files[i].getSignedUrl(config));
+         }
+        
+        const urlsArray = await Promise.all(promises);
+
+        const projects2017 = [];
+        for(let i=0; i<urlsArray.length; i++){
+            const PROJECTS_2017 = urlsArray[i].filter(function(item) {
+                return item.toString().includes("2017_Projects_") == true;
+            });
+            if(PROJECTS_2017.length !=0){
+                projects2017.push(PROJECTS_2017);
+            }
+        }
+        // const stringData = JSON.stringify(csr2017);
+
+        var dObj = [];
+        var temp_key = ""
+
+        for(let i=0; i<projects2017.length; i++){
+            const dataStr = JSON.stringify(temp_key + projects2017[i]);
+            const dataString = ("{"+'"img":'+dataStr+"}");
+            // console.log(dataString)
+            const dataObj = JSON.parse(dataString);
+            // console.log(dataObj)
+            dObj.push(dataObj)
+        }
+        console.log(dObj)
+
+        res.send({body: dObj})
+        return urlsArray;
+
+    } catch (error) {
+        console.error("Error creating user document", error);
+    }
+}
 const projects2020_gallery = async (req, res) => {
     console.log('jahahaha')
     const bucketName = 'gledex-d4404.appspot.com';
@@ -608,6 +657,7 @@ module.exports = {
     gatherings2017_gallery,
     gatherings2020_gallery,
     gatherings2021_gallery,
+    projects2017_gallery,
     projects2020_gallery,
     projects2021_gallery
 }

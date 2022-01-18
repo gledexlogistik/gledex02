@@ -9,6 +9,7 @@ const { gatherings2016_gallery } = require('../controller/galleryController');
 const { gatherings2017_gallery } = require('../controller/galleryController');
 const { gatherings2020_gallery } = require('../controller/galleryController');
 const { gatherings2021_gallery } = require('../controller/galleryController');
+const { projects2017_gallery } = require('../controller/galleryController');
 const { projects2020_gallery } = require('../controller/galleryController');
 const { projects2021_gallery } = require('../controller/galleryController');
 
@@ -24,6 +25,7 @@ router.post('/gatherings2016_gal', gatherings2016_gallery);
 router.post('/gatherings2017_gal', gatherings2017_gallery);
 router.post('/gatherings2020_gal', gatherings2020_gallery);
 router.post('/gatherings2021_gal', gatherings2021_gallery);
+router.post('/projects2017_gal', projects2020_gallery);
 router.post('/projects2020_gal', projects2020_gallery);
 router.post('/projects2021_gal', projects2021_gallery);
 
